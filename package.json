@@ -2,7 +2,7 @@
  "name": "nodelogin",
  "main": "server.js",
  "scripts": {
-  "start": "node server.js"
+  "start": "node ./server"
  },
  "dependencies": {
   "bcrypt-nodejs": "0.0.3",
