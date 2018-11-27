@@ -10,5 +10,5 @@ module.exports = {
  // 'database':'registration',
  // 'user_table':'users'
  'database':'heroku_6f687bb36813ea6'
- // 'user_table':'users'
+ 'user_table':'users'
 }
