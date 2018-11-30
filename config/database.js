@@ -14,6 +14,6 @@ module.exports = {
   'user':'bf8b2a417287c7',
   'password':'072596f5'
  },
- 'database':'heroku_6f687bb36813ea6'
+ 'database':'heroku_6f687bb36813ea6',
  'user_table':'users'
 }
