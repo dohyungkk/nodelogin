@@ -36,12 +36,14 @@ module.exports = function(passport) {
     }else{
      var newUserMysql = {
       username: username,
-      password: bcrypt.hashSync(password, null, null)
+      password: bcrypt.hashSync(password, null, null),
+      gender: req.body.gender, //////////////////////////////////////////////
+      bday: req.body.bday
      };
 
-     var insertQuery = "INSERT INTO users (username, password) values (?, ?)";
+     var insertQuery = "INSERT INTO users (username, password, gender, bday) values (?, ?, ?, ?)"; //////////
 
-     connection.query(insertQuery, [newUserMysql.username, newUserMysql.password],
+     connection.query(insertQuery, [newUserMysql.username, newUserMysql.password, newUserMysql.gender, newUserMysql.bday], //////////
       function(err, rows){
        newUserMysql.id = rows.insertId;
 
@@ -69,8 +71,6 @@ module.exports = function(passport) {
     }
     if(!bcrypt.compareSync(password, rows[0].password))
      return done(null, false, req.flash('loginMessage', 'Wrong Password'));
-    // if(birthday>2001)
-    //   return done(null, false, req.flash('loginMessage', 'Too old to register!'));
 
     return done(null, rows[0]);
    });
